@@ -50,7 +50,22 @@
   - Raycast hit detection with various modes tested
   - All classes compile successfully with proper type safety
 
+- **Task 5**: Implement constraint classes (PointToPoint, Distance, Hinge, Lock, ConeTwist) - Completed on 2025-08-31
+  - Created Scala facade for base Constraint class with equations management
+  - Implemented PointToPointConstraint with pivot points and three contact equations
+  - Created DistanceConstraint for maintaining constant distance between bodies
+  - Implemented HingeConstraint with rotational equations and motor support
+  - Added LockConstraint for removing all degrees of freedom between bodies
+  - Created ConeTwistConstraint for cone and twist joint constraints
+  - All constraint types from cannon.js represented
+  - Equation update and solving integration included
+  - Motor and limit support for applicable constraints (Hinge)
+  - Constraint creation and body attachment verified
+  - Equation count and solving verification completed
+  - Motor activation and limit enforcement tested
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 5: Implement constraint classes
 - Task 6: Implement solver classes
+- Task 7: Implement body class
 - Continue with remaining tasks in dependency order
