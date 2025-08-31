@@ -25,7 +25,18 @@
   - Ensured bounding radius updates are handled automatically
   - All shapes compile successfully with proper type safety
 
+- **Task 3**: Implement material and contact material classes - Completed on 2025-08-31
+  - Created Scala facade for Material class with friction and restitution properties
+  - Implemented ContactMaterial class for material interaction rules
+  - Added support for material lookup in contact material table
+  - Included default material handling
+  - Ensured type-safe property access
+  - Material creation and property access verified
+  - Contact material pairing and lookup tested
+  - Default material fallback scenarios handled
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 3: Implement material classes
 - Task 4: Implement collision detection classes
+- Task 5: Implement constraint classes
 - Continue with remaining tasks in dependency order
