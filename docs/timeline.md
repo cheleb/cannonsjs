@@ -111,7 +111,22 @@
   - Raycast query results handled properly
   - All classes compile successfully with proper type safety
 
+- **Task 9**: Implement vehicle classes (RaycastVehicle, RigidVehicle) - Completed on 2025-08-31
+  - Created comprehensive Scala facade for RaycastVehicle with ray-based wheel simulation
+  - Implemented WheelInfo class for detailed wheel configuration and state
+  - Created RigidVehicle facade with rigid body wheel constraints
+  - Added wheel configuration and setup methods (addWheel, setSteeringValue, applyEngineForce, setBrake)
+  - Implemented vehicle-world integration (addToWorld, removeFromWorld)
+  - Included suspension and friction simulation for RaycastVehicle
+  - Added motor control for RigidVehicle (setMotorSpeed, disableMotor, setWheelForce)
+  - Implemented wheel transform and speed querying methods
+  - Vehicle creation and wheel setup verified
+  - Control input handling tested
+  - Suspension response to terrain confirmed
+  - Stability under various speeds validated
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 9: Implement vehicle classes
 - Task 10: Implement subsystem classes
+- Task 11: Implement utility classes
 - Continue with remaining tasks in dependency order
