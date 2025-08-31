@@ -77,7 +77,23 @@
   - Edge cases with over-constrained systems handled
   - All classes compile successfully with proper type safety
 
+- **Task 7**: Implement body class - Completed on 2025-08-31
+  - Created comprehensive Scala facade for Body class with all physics properties
+  - Implemented all body types (DYNAMIC, STATIC, KINEMATIC) with constants
+  - Added shape addition with offsets and orientations
+  - Included force/impulse application at world/local points
+  - Implemented sleep management with customizable thresholds
+  - Added comprehensive physics properties (mass, velocity, position, quaternion, etc.)
+  - Included collision properties (filter groups/masks, AABB, bounding radius)
+  - Implemented damping and factor controls for motion constraints
+  - Added integration methods for physics simulation
+  - Body creation with various configurations verified
+  - Shape attachment and mass property updates tested
+  - Force application and motion integration confirmed
+  - Sleep state transitions handled properly
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 7: Implement body class
 - Task 8: Implement world class
+- Task 9: Implement vehicle classes
 - Continue with remaining tasks in dependency order
