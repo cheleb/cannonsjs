@@ -1,0 +1,3 @@
+[submodule "submodules/cannon.js"]
+	path = submodules/cannon.js
+	url = git@github.com:schteppe/cannon.js.git
