@@ -36,7 +36,21 @@
   - Default material fallback scenarios handled
   - All classes compile successfully with proper type safety
 
+- **Task 4**: Implement collision detection classes (AABB, Broadphase types, Ray, RaycastResult) - Completed on 2025-08-31
+  - Created Scala facade for AABB (Axis-Aligned Bounding Box) with all standard operations
+  - Implemented RaycastResult for storing ray intersection data
+  - Created Ray class with intersection methods and raycasting modes (CLOSEST, ANY, ALL)
+  - Implemented Broadphase base class with collision pair generation
+  - Added specific broadphase implementations: NaiveBroadphase, GridBroadphase, SAPBroadphase
+  - Ensured all broadphase types are supported for performance tuning
+  - Implemented raycast modes for different query types
+  - Added collision matrix management capabilities
+  - AABB intersection and extension tests verified
+  - Broadphase pair generation accuracy confirmed
+  - Raycast hit detection with various modes tested
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 4: Implement collision detection classes
 - Task 5: Implement constraint classes
+- Task 6: Implement solver classes
 - Continue with remaining tasks in dependency order
