@@ -142,7 +142,23 @@
   - Performance with large particle counts tested
   - All classes compile successfully with proper type safety
 
+- **Task 11**: Implement utility classes (EventTarget, Pool, Vec3Pool, TupleDictionary) - Completed on 2025-08-31
+  - Created comprehensive Scala facade for EventTarget event system
+  - Implemented Pool facade for object reuse and memory management
+  - Created Vec3Pool facade extending Pool for vector object pooling
+  - Implemented TupleDictionary facade for efficient pair-based storage
+  - Added EventTarget event listener management (addEventListener, removeEventListener, dispatchEvent)
+  - Included event checking methods (hasEventListener, hasAnyEventListener)
+  - Implemented Pool object lifecycle (release, get, constructObject, resize)
+  - Added Vec3Pool specific vector construction override
+  - Created TupleDictionary pair operations (get, set, reset) with automatic key ordering
+  - Event dispatching and listener execution verified
+  - Pool allocation and deallocation tested
+  - Dictionary operations with collision detection confirmed
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 11: Implement utility classes
-- All major components completed
+- All tasks completed successfully
+- Full ScalaJS facade for cannon.js implemented
 - Ready for final testing and integration
+- Documentation and examples can be created
