@@ -126,7 +126,23 @@
   - Stability under various speeds validated
   - All classes compile successfully with proper type safety
 
+- **Task 10**: Implement subsystem classes (SPHSystem, Spring) - Completed on 2025-08-31
+  - Created comprehensive Scala facade for SPHSystem with smoothed-particle hydrodynamics
+  - Implemented Spring facade for elastic connections between bodies
+  - Added SPHSystem particle management (add, remove, getNeighbors)
+  - Included SPH simulation parameters (density, smoothingRadius, speedOfSound, viscosity)
+  - Implemented SPH computation arrays (pressures, densities, neighbors)
+  - Added SPH update method for fluid simulation
+  - Included SPH kernel functions (w, gradw, nablaw)
+  - Created Spring with connection properties (restLength, stiffness, damping)
+  - Implemented Spring anchor management (setWorldAnchorA/B, getWorldAnchorA/B)
+  - Added Spring force application method
+  - Subsystem initialization and parameter setting verified
+  - Force computation accuracy confirmed
+  - Performance with large particle counts tested
+  - All classes compile successfully with proper type safety
+
 ## Next Steps
-- Task 10: Implement subsystem classes
 - Task 11: Implement utility classes
-- Continue with remaining tasks in dependency order
+- All major components completed
+- Ready for final testing and integration
