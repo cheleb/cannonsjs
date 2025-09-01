@@ -5,7 +5,7 @@ import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 object Dependencies {
   val Versions = new {
     val frontroute = "0.19.0"
-    val mUnit      = "1.0.2"
+    val mUnit = "1.0.2"
   }
 
   val testingLibraryDependencies =
@@ -16,9 +16,10 @@ object Dependencies {
   val clientLibraryDependencies: Setting[Seq[ModuleID]] =
     libraryDependencies ++= Seq(
       // "org.scala-js"  %%% "scalajs-dom"        % "2.8.1-local",
-      "org.scala-js"  %%% "scalajs-dom"        % "2.8.0",
-      "be.doeraene"   %%% "web-components-ui5" % "2.1.0",
-      "io.frontroute" %%% "frontroute"         % Versions.frontroute
+      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
+      "be.doeraene" %%% "web-components-ui5" % "2.1.0",
+      "dev.cheleb" %%% "threesjs" % "0.0.3",
+      "io.frontroute" %%% "frontroute" % Versions.frontroute
     )
 
   val clientAndServerLibraries = Seq(
