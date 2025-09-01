@@ -16,20 +16,24 @@ object BallsPage {
   val R = 1
   def apply() =
 
-    // val world = new CANNON.World()
+    val world = new CANNON.World()
+    world.gravity.set(0, 0, 0);
+    world.broadphase = new CANNON.NaiveBroadphase();
+    // // world.solver.iterations = 10;
 
-    val scalaMesh = Var(Option.empty[GLTFResult])
-    val globeGroup = new Group()
-    // Map of place name to the Threejs Group (pinner)
-    // This will be used to store the groups for each place
-    // and allow us to add/remove them from the globe
-    // when the checkbox is checked/unchecked
-    // This is a mutable map, so we can add/remove groups as needed
+    val shape = CANNON.Box(new CANNON.Vec3(1, 1, 1));
 
-    // Elements for raycast hovering
-    val raycaster = new Raycaster()
-    raycaster.params.Points.threshold = 100
-    raycaster.params.Line.threshold = 100
+    val body = CANNON.Body(
+      js.Dynamic.literal(
+        mass = 1
+      )
+    )
+    body.addShape(shape);
+    body.angularVelocity.set(0, 10, 0);
+    body.angularDamping = 0.5;
+    world.addBody(body);
+    println(world)
+    println(shape)
 
     val eartthDiv = div(
       h1("World of Scala"),
@@ -50,32 +54,16 @@ object BallsPage {
 
     val margin = 0.8
 
-    val detail = 300
     val geometry = new IcosahedronGeometry(R - 0.05, 10)
-    val pointGeometry = new IcosahedronGeometry(R, detail);
 
     val material = MeshPhongMaterial(
       color = 0x555555,
       wireframe = true
     )
 
-    val textureLoader = TextureLoader()
-    val colorMap =
-      textureLoader.load("/ThreeScalaJS/demo/img/8081-earthmap10k.jpg")
-
-    val pointMaterial = PointsMaterial(
-      color = 0xf0f8ff,
-      size = 0.02,
-      map = colorMap,
-      alphaMap = colorMap
-    )
-    val points = Points(pointGeometry, pointMaterial)
-
     val earth = new Mesh(geometry, material);
-    globeGroup.add(earth)
-    globeGroup.add(points)
-    println(points)
-    scene.add(globeGroup)
+    body.position.set(1, 1, 1);
+    scene.add(earth)
 
     val camera =
       new PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 100);
@@ -89,25 +77,35 @@ object BallsPage {
     renderer.setPixelRatio(window.devicePixelRatio)
     val orbitControl = OrbitControls(camera, renderer.domElement)
 
-    renderer.setClearColor("#AAAAAA", 1)
+    renderer.setClearColor("#851212ff", 1)
     renderer.setSize(window.innerWidth * margin, window.innerHeight * margin)
 
-    val loader = new GLTFLoader()
+    def updatePhysics() = {
 
-    loader.load(
-      "/ThreeScalaJS/demo/res/scala.glb",
-      obj => {
-        scalaMesh.set(Some(obj))
-      }
-    )
+      // Step the physics world
+      world.step(0.01);
+
+      // Copy coordinates from Cannon.js to Three.js
+      earth.position.set(body.position.x, body.position.y, body.position.z);
+      earth.quaternion.set(
+        body.quaternion.x,
+        body.quaternion.y,
+        body.quaternion.z,
+        body.quaternion.w
+      );
+
+      println(body.position)
+
+    }
 
     // Raycasting function to detect hover on pinners
 
     val animate: () => Unit = () => {
 
-      // globeGroup.rotation.y += 0.0005;
+      // earth.rotation.y += 1.0505;
 
       orbitControl.update()
+      updatePhysics()
 
       renderer.render(scene, camera);
     }
